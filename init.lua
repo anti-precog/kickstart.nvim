@@ -204,13 +204,9 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- Using 'j' and 'k' moves on visual line, no on real one.
 -- My own edit. Using 'j' and 'k' moves on visual line, no on real one.
 
-vim.keymap.set('n', 'j', function()
-  return vim.v.count == 0 and 'gj' or 'j'
-end, { expr = true })
+vim.keymap.set('n', 'j', function() return vim.v.count == 0 and 'gj' or 'j' end, { expr = true })
 
-vim.keymap.set('n', 'k', function()
-  return vim.v.count == 0 and 'gk' or 'k'
-end, { expr = true })
+vim.keymap.set('n', 'k', function() return vim.v.count == 0 and 'gk' or 'k' end, { expr = true })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -623,7 +619,7 @@ require('lazy').setup({
       -- You can press `g?` for help in this menu.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'lua_ls', -- Lua Language server
+        'lua-language-server', -- Lua Language server
         'stylua', -- Used to format Lua code
         -- You can add other tools here that you want Mason to install
       })
